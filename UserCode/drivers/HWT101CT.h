@@ -50,9 +50,11 @@ typedef enum
 typedef struct
 {
     UART_HandleTypeDef*  huart;
-    HWT101CT_SyncState_t sync_state; ///< 同步状态
-    float                yaw;        ///< 偏航角
-    float                wz;         ///< 角速度
+    HWT101CT_SyncState_t sync_state;   ///< 同步状态
+    float                feedback_yaw; ///< 反馈偏航角（-180~180）
+    int32_t              round_count;  ///< 圈数统计
+    float                yaw;          ///< 偏航角
+    float                wz;           ///< 角速度
 
     uint8_t rx_buffer[HWT101CT_CMD_LEN];
 
